@@ -56,7 +56,7 @@ export default function Home() {
         <Kpi value={`${Math.floor(p.combinedRangeKm / 10) * 10}+ km`} label="combined operating range" sub={`${Math.round(p.evRangeKm)} km EV + ${Math.round(p.rangeExtenderKm)} km CNG`} color={COLORS.blue} />
         <Kpi value="70%" label="urban km on EV" sub="2035 planning assumption" color={COLORS.green} />
         <Kpi value={`${Math.round(c.tcoSavingPct * 100)}%`} label="lower 5-year TCO" sub={`${inrL(c.baseline.total)} → ${inrL(c.candidate.total)}`} color={COLORS.red} />
-        <Kpi value={`+${inrL(c.driverAnnualDelta, 2)}`} label="driver earnings / year" sub={`+${Math.round(c.paidKmDelta / 100) * 100} paid km/yr`} color={COLORS.amber} />
+        <Kpi value={`+${inrL(c.driverAnnualDelta, 2)}`} label="driver earnings / year" sub={`+${(Math.round(c.paidKmDelta / 100) * 100).toLocaleString("en-IN")} paid km/yr`} color={COLORS.amber} />
         <Kpi value="20 min" label="10–80% DC charge" sub={`${p.dcAvgPowerKw.toFixed(0)} kW avg · ${p.dcAvgCRate.toFixed(1)}C`} color={COLORS.navy} />
       </section>
 

@@ -263,7 +263,11 @@ export interface Frame {
   // Flat arrays: per vehicle [x, y, stateCode, socPct]
   v: Float32Array;
   waiting: number;
+  /** Cumulative to this tick: [paidKm, totalKm, served, unmet, revenue, energyCost, chargingMinPeak, deadKm + chargeKm]. */
+  cum: Float64Array;
 }
+
+export const CUM = { paidKm: 0, totalKm: 1, served: 2, unmet: 3, revenue: 4, energyCost: 5, chargingMinPeak: 6, nonPaidKm: 7 } as const;
 
 export interface SimResult {
   policy: Policy;
@@ -707,7 +711,8 @@ export function runSim(policy: Policy, demand: DemandData, cfg: SimConfig = DEFA
         arr[i * 4 + 2] = STATE_CODES.indexOf(v.state);
         arr[i * 4 + 3] = socPct(v);
       });
-      frames.push({ v: arr, waiting: open.length });
+      const cum = Float64Array.from([m.paidKm, m.totalKm, m.tripsServed, m.unmet, m.revenue, m.energyCost, m.chargingMinPeak, m.deadKm + m.chargeKm]);
+      frames.push({ v: arr, waiting: open.length, cum });
     }
   }
 
@@ -734,7 +739,7 @@ export function explainDecision(d: Decision): string {
     case "vantage_night_topup":
       return `Charge now. Night tariff is ₹${f.tariffNow}/kWh and forecast demand is low (${f.forecastNextHour}/h), so topping up from ${f.socPct}% to full is cheap and ready for the morning peak.`;
     case "naive_soc_below_30":
-      return `Charge now (fixed rule). SOC ${f.socPct}% is below 30%, so the car goes to the nearest charger — even though ${f.waitingNearby} trips are waiting nearby and it is ${f.peak ? "a peak hour" : "off-peak"}.`;
+      return `Charge now (fixed rule). SOC ${f.socPct}% is below 30%, so the car goes to the nearest charger — even though ${f.waitingNearby} trip${f.waitingNearby === 1 ? " is" : "s are"} waiting nearby and it is ${f.peak ? "a peak hour" : "off-peak"}.`;
     default:
       return `${d.answer === "YES" ? "Charge now" : "Don't charge now"} (SOC ${f.socPct}%).`;
   }

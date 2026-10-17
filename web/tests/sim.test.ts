@@ -86,3 +86,14 @@ describe("decision cards", () => {
     }
   });
 });
+
+describe("bounded-AI guard", async () => {
+  const { onlyFactNumbers } = await import("@/lib/engine/guard");
+  const d = vant.decisions.find((x) => x.answer === "NO")!;
+  it("accepts text whose numbers all come from the facts", () => {
+    expect(onlyFactNumbers(`SOC is ${d.facts.socPct}% with ${d.facts.waitingNearby} trips waiting.`, d)).toBe(true);
+  });
+  it("rejects text that invents a number", () => {
+    expect(onlyFactNumbers("You would lose ₹4,321 by charging.", d)).toBe(false);
+  });
+});
