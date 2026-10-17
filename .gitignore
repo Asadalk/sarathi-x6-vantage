@@ -20,3 +20,6 @@ __pycache__/
 # misc
 .DS_Store
 deck/_render/
+
+# private submission material (deck, video script, screenshots) — kept local only
+deck/

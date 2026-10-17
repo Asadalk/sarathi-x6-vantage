@@ -16,17 +16,12 @@ flowchart LR
     P -->|decision facts| API[/api/explain<br/>bounded AI, optional key/]
     API -->|text or template| P
   end
-  ENG --> N[scripts/deck-numbers.ts] --> DN[deck/numbers.json]
-  P -->|Playwright| SH[deck/screenshots]
-  DN --> B[deck/build_deck.py<br/>official template] --> PDF[SARATHI-X6_Round2.pdf]
-  SH --> B
 ```
 
 ## Principles
 
 - **Deterministic numbers, bounded AI.** Every number comes from pure, tested functions. `/api/explain` only rewords a decision's facts, and `lib/engine/guard.ts` rejects any output containing a number that isn't in those facts.
 - **One source of truth.** Python and TypeScript read the same exported JSON, and a pytest checks the two match.
-- **Deck = code output.** Slide numbers come from `deck/numbers.json`, which the same engine writes, and screenshots come from the production URL.
 
 ## Testing
 

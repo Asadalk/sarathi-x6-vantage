@@ -9,7 +9,7 @@ Built for Maruti Suzuki XCELerate 2026 · E-Track (Round 2) by Team SARATHI.
 
 | TCO & driver earnings | Live fleet simulator | Powertrain selector |
 |---|---|---|
-| ![TCO](deck/screenshots/tco-desktop.png) | ![Simulator](deck/screenshots/vantage-desktop.png) | ![Powertrain](deck/screenshots/powertrain-desktop.png) |
+| ![TCO](docs/screenshots/tco-desktop.png) | ![Simulator](docs/screenshots/vantage-desktop.png) | ![Powertrain](docs/screenshots/powertrain-desktop.png) |
 
 ## The problem
 
@@ -53,7 +53,6 @@ flowchart LR
   J --> E[web/lib/engine<br/>tco · scoring · market · physics · sim]
   E --> UI[Next.js pages on Vercel]
   UI -->|facts only| AI[/api/explain<br/>optional, bounded/]
-  E --> DN[deck/numbers.json] --> D[deck/build_deck.py → PDF]
 ```
 
 More in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
@@ -78,8 +77,6 @@ npm test && npm run lint && npm run typecheck
 # offline model (regenerates web/public/data/*.json)
 cd model && pip install -r requirements.txt && python export.py && pytest -q tests
 
-# deck (needs the official template in inputs/, which is not committed)
-cd web && npm run deck-numbers && cd .. && node deck/shoot.mjs && python deck/build_deck.py
 ```
 
 Optional: set `ANTHROPIC_API_KEY` (see `.env.example`) to enable AI-worded explanations on `/vantage`. Without it, the app uses deterministic templates.
