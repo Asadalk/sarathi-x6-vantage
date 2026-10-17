@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run",
-    "deck-numbers": "tsx scripts/deck-numbers.ts ../deck/numbers.json"
+    "test": "vitest run"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.135.0",
