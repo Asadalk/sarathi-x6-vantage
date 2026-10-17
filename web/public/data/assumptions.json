@@ -337,6 +337,7 @@
    "insurancePerYear": 35000,
    "downtimeDays": 12,
    "queueMinPerDay": 40,
+   "queueMinCityOnly": 40,
    "depotShare": 0,
    "rangeKm": 420,
    "refuelMinutes": 10,
@@ -357,6 +358,7 @@
    "insurancePerYear": 35000,
    "downtimeDays": 12,
    "queueMinPerDay": 55,
+   "queueMinCityOnly": 55,
    "depotShare": 0,
    "rangeKm": 420,
    "refuelMinutes": 10,
@@ -377,6 +379,7 @@
    "insurancePerYear": 34000,
    "downtimeDays": 8,
    "queueMinPerDay": 10,
+   "queueMinCityOnly": 10,
    "depotShare": 0,
    "rangeKm": 800,
    "refuelMinutes": 5,
@@ -397,6 +400,7 @@
    "insurancePerYear": 36000,
    "downtimeDays": 8,
    "queueMinPerDay": 20,
+   "queueMinCityOnly": 15,
    "depotShare": 0.85,
    "rangeKm": 700,
    "refuelMinutes": 5,
@@ -417,10 +421,11 @@
    "insurancePerYear": 36000,
    "downtimeDays": 6,
    "queueMinPerDay": 60,
+   "queueMinCityOnly": 5,
    "depotShare": 0.6,
    "rangeKm": 270,
    "refuelMinutes": 35,
-   "infraCity": 7,
+   "infraCity": 9,
    "infraHighway": 3,
    "why": "Lowest ₹/km, but intercity/airport duty forces mid-shift public DC (queue + detour time) and highway coverage is thin"
   },
@@ -437,6 +442,7 @@
    "insurancePerYear": 32000,
    "downtimeDays": 5,
    "queueMinPerDay": 20,
+   "queueMinCityOnly": 15,
    "depotShare": 0.8,
    "rangeKm": 518,
    "refuelMinutes": 20,
@@ -445,6 +451,90 @@
    "why": "24 kWh LFP + CNG range-extender; depot charging overnight, one VANTAGE-scheduled DC top-up off-peak; CNG for highway"
   }
  ],
+ "bodyStyles": {
+  "criteria": [
+   {
+    "id": "capacity",
+    "label": "Seats & pooling capacity",
+    "weight": 0.22
+   },
+   {
+    "id": "luggage",
+    "label": "Airport luggage",
+    "weight": 0.18
+   },
+   {
+    "id": "efficiency",
+    "label": "Energy ₹/km",
+    "weight": 0.18
+   },
+   {
+    "id": "city",
+    "label": "City footprint & turning",
+    "weight": 0.14
+   },
+   {
+    "id": "comfort",
+    "label": "Ingress/egress & comfort",
+    "weight": 0.14
+   },
+   {
+    "id": "cost",
+    "label": "Upfront cost",
+    "weight": 0.14
+   }
+  ],
+  "options": [
+   {
+    "id": "sedan",
+    "label": "Compact sedan",
+    "scores": {
+     "capacity": 2,
+     "luggage": 3,
+     "efficiency": 5,
+     "city": 4,
+     "comfort": 3,
+     "cost": 5
+    }
+   },
+   {
+    "id": "suv",
+    "label": "Compact SUV",
+    "scores": {
+     "capacity": 2,
+     "luggage": 3,
+     "efficiency": 3,
+     "city": 4,
+     "comfort": 3,
+     "cost": 3
+    }
+   },
+   {
+    "id": "mpv",
+    "label": "6+1 compact MPV (SARATHI-X6)",
+    "scores": {
+     "capacity": 5,
+     "luggage": 4,
+     "efficiency": 4,
+     "city": 4,
+     "comfort": 5,
+     "cost": 4
+    }
+   },
+   {
+    "id": "van",
+    "label": "Large van",
+    "scores": {
+     "capacity": 5,
+     "luggage": 5,
+     "efficiency": 2,
+     "city": 2,
+     "comfort": 3,
+     "cost": 3
+    }
+   }
+  ]
+ },
  "scoringWeights": {
   "costPerKm": 0.3,
   "uptime": 0.25,

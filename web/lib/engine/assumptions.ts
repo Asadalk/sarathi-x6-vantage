@@ -9,6 +9,7 @@ export interface Assumption {
   usedIn?: string[];
 }
 
+export type BodyCriterion = "capacity" | "luggage" | "efficiency" | "city" | "comfort" | "cost";
 export type FuelType = "cng" | "biocng" | "petrol" | "none";
 export type PowertrainId = "CNG" | "BIOCNG" | "HEV" | "PHEV" | "BEV" | "EREV";
 
@@ -25,6 +26,7 @@ export interface PowertrainSpec {
   insurancePerYear: number;
   downtimeDays: number;
   queueMinPerDay: number;
+  queueMinCityOnly: number;
   depotShare: number;
   rangeKm: number;
   refuelMinutes: number;
@@ -79,6 +81,10 @@ export interface AssumptionsFile {
     Assumption
   >;
   powertrains: PowertrainSpec[];
+  bodyStyles: {
+    criteria: { id: BodyCriterion; label: string; weight: number }[];
+    options: { id: string; label: string; scores: Record<BodyCriterion, number> }[];
+  };
   scoringWeights: Record<"costPerKm" | "uptime" | "infra" | "co2" | "upfront", number>;
   dutyMix: { cityShare: Assumption };
   market: {
