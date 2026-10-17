@@ -163,8 +163,8 @@ export default function TcoClient() {
         </Card>
       </div>
 
-      {/* Outputs */}
-      <div className="space-y-4 min-w-0">
+      {/* Outputs (first on phones so results are visible without scrolling past every slider) */}
+      <div className="space-y-4 min-w-0 order-first lg:order-none">
         <div className="grid grid-cols-2 xl:grid-cols-3 gap-3">
           <Kpi value={inrL(cmp.tcoSaving)} label="5-yr TCO saving vs CNG" sub={`${inrL(base.total)} → ${inrL(cand.total)} (${pct(cmp.tcoSavingPct)})`} color={COLORS.red} />
           <Kpi value={inrL(cmp.annualOperatorSaving, 2)} label="operator cost saving / yr" sub="TCO view, per vehicle" color={COLORS.blue} />

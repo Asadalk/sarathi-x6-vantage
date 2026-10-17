@@ -86,7 +86,7 @@ Optional: set `ANTHROPIC_API_KEY` (see `.env.example`) to enable AI-worded expla
 
 ## Tests
 
-62 automated tests: 56 Vitest (Round-1 reproduction, TCO invariants, physics sanity, scoring crossovers, simulator determinism and robustness over 10 seeds, bounded-AI guard) and 6 pytest (YAML↔JSON drift, market parity, generator determinism, health-model detection). CI runs lint, typecheck, tests and build on every push.
+65 automated tests: 59 Vitest (Round-1 reproduction, TCO invariants, physics sanity, scoring crossovers, simulator determinism and robustness over 10 seeds, bounded-AI guard, shareable-URL round-trip) and 6 pytest (YAML↔JSON drift, market parity, generator determinism, health-model detection). CI runs lint, typecheck, tests and build on every push.
 
 ## Team
 
