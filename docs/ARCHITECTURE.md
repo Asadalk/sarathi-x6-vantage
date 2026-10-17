@@ -36,4 +36,5 @@ flowchart LR
 | `web/tests/physics.test.ts` | DC power/C-rate limits, EV range, 500+ km, 70% EV feasibility |
 | `web/tests/scoring-market.test.ts` | EREV wins mixed duty, BEV wins city-only, CNG wins upfront; market sums |
 | `web/tests/sim.test.ts` | Determinism, paid + dead + charge km = total, revenue = paid km × fare, robustness over 10 seeds, explanations use fact numbers only |
+| `web/tests/scenario.test.ts` | Shareable-URL encode/decode round-trip, unknown-key rejection |
 | `model/tests/test_model.py` | YAML ↔ JSON drift, market parity, generator determinism, health model detection |
