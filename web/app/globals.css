@@ -1,26 +1,97 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navy: #16205c;
+  --navy-2: #1e2761;
+  --blue: #1e4fa8;
+  --cyan: #22b8d8;
+  --red: #d7262e;
+  --green: #2e9e5b;
+  --amber: #f28c28;
+
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --surface-2: #eef1f8;
+  --text: #121a3f;
+  --muted: #56607f;
+  --border: #dde3f0;
+  --accent: var(--blue);
+  --grid: #e3e8f3;
+  --shadow: 0 1px 2px rgb(22 32 92 / 0.06), 0 6px 20px rgb(22 32 92 / 0.07);
+}
+
+[data-theme="dark"] {
+  --bg: #0c1236;
+  --surface: #141c4a;
+  --surface-2: #1b2459;
+  --text: #e8ecfa;
+  --muted: #a3acd0;
+  --border: #2a3470;
+  --accent: #5b8ff0;
+  --grid: #253068;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px rgb(0 0 0 / 0.25);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--text);
+  --color-muted: var(--muted);
+  --color-line: var(--border);
+  --color-accent: var(--accent);
+  --color-navy: var(--navy);
+  --color-mblue: var(--blue);
+  --color-cyan: var(--cyan);
+  --color-mred: var(--red);
+  --color-mgreen: var(--green);
+  --color-amber: var(--amber);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--bg);
+  color-scheme: light;
+}
+[data-theme="dark"] {
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+input[type="range"] {
+  accent-color: var(--accent);
+  width: 100%;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Recharts tooltips/labels follow the theme */
+.recharts-default-tooltip {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px;
+  color: var(--text);
+}
+.recharts-text {
+  fill: var(--muted);
+}
+.recharts-cartesian-grid line {
+  stroke: var(--grid);
 }

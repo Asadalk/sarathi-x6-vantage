@@ -1,0 +1,170 @@
+{
+ "S1": {
+  "figure": "US$13.75 bn (2026) to US$31.38 bn (2031); CAGR 17.93%",
+  "notes": "India taxi market. Fetched page, \"last updated August 11, 2026\". A search snippet attributed different Mordor figures (US$23.98 bn 2026 to US$34.87 bn 2031, 7.78% CAGR), so the numbers conflict. Use with caution.",
+  "publisher": "Mordor Intelligence",
+  "url": "https://www.mordorintelligence.com/industry-reports/india-taxi-market",
+  "accessed": "2026-10-18"
+ },
+ "S2": {
+  "figure": "Ride-hailing = 65.10% of 2025 taxi revenue",
+  "notes": "Same report. Ride-sharing/car-pooling forecast to be fastest growing (19.74% CAGR).",
+  "publisher": "Mordor Intelligence",
+  "url": "https://www.mordorintelligence.com/industry-reports/india-taxi-market",
+  "accessed": "2026-10-18"
+ },
+ "S3": {
+  "figure": "Intra-city point-to-point = 60.75% share (2025); airport transfers 19.14% CAGR to 2031",
+  "notes": "Trip-purpose split. The page gives no share for airport or intercity trips. Other 2025 shares: online booking 70.84%, passenger cars 57.25%, ICE 83.72%, individual consumers 75.98%.",
+  "publisher": "Mordor Intelligence",
+  "url": "https://www.mordorintelligence.com/industry-reports/india-taxi-market",
+  "accessed": "2026-10-18"
+ },
+ "S4": {
+  "figure": "US$21.41 bn (2025) to US$30.65 bn (2030); CAGR 6.16%",
+  "notes": "India taxi market (snippet). Cross-check for S1.",
+  "publisher": "TechSci Research",
+  "url": null,
+  "accessed": "2026-10-18"
+ },
+ "S5": {
+  "figure": "Delhi ₹86.98/kg (from 29 Aug 2026; up ₹3.89 from ₹83.09)",
+  "notes": "IGL hike blamed on spot LNG costs (West Asia / Hormuz). Same reports: Noida/Ghaziabad ₹95.59, Gurugram ₹92.01. Delhi was ₹77.09 at the start of 2026 (snippet). No later change found.",
+  "publisher": "IANS / Deccan Herald (snippet)",
+  "url": "https://ianslive.in/cng-prices-hiked-by-rs-389-per-kg-in-delhi-ncr-new-rates-effective-today--20260829061720",
+  "accessed": "2026-10-18"
+ },
+ "S6": {
+  "figure": "Mumbai ₹89/kg (from 1 Oct 2026)",
+  "notes": "MGL's fifth hike of 2026, up ₹8/kg since April. Fetched; article dated 1 Oct 2026.",
+  "publisher": "Free Press Journal",
+  "url": "https://www.freepressjournal.in/mumbai/mumbai-cng-price-rises-8-per-kg-since-april-hits-89-auto-fares-under-pressure",
+  "accessed": "2026-10-18"
+ },
+ "S7": {
+  "figure": "Public DC fast charging ₹15–25/kWh",
+  "notes": "Range across networks including Tata Power (snippet; blog dated April 2026). No official rate card found.",
+  "publisher": "VoltFlow (blog)",
+  "url": "https://www.voltflow.net/blog/ev-charging-cost-india-2026",
+  "accessed": "2026-10-18"
+ },
+ "S8": {
+  "figure": "Tata Power EZ Charge DC ≈ ₹22–26/kWh; home ≈ ₹8/kWh (Delhi)",
+  "notes": "Third-party estimate (snippet, blog). Low confidence.",
+  "publisher": "MeraEV (blog)",
+  "url": "https://www.meraev.com/blog/how-much-does-it-actually-cost-to-run-an-electric-car-in-india-per-kilometer-in-2026",
+  "accessed": "2026-10-18"
+ },
+ "S9": {
+  "figure": "52,718 public EV charging stations, incl. 16,561 with fast chargers for cars",
+  "notes": "MoS Heavy Industries, Lok Sabha unstarred reply. ANI report dated 21 Jul 2026 (fetched).",
+  "publisher": "ANI via LatestLY",
+  "url": "https://www.latestly.com/agency-news/business-news-india-has-over-52700-public-ev-charging-stations-including-16561-fast-chargers-for-cars-govt-7525682.html/amp",
+  "accessed": "2026-10-18"
+ },
+ "S10": {
+  "figure": "29,277 public EV charging stations (state-wise total)",
+  "notes": "Earlier PIB annexure (Aug 2025), from Ministry of Power inputs (snippet).",
+  "publisher": "PIB",
+  "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/aug/doc202581598101.pdf",
+  "accessed": "2026-10-18"
+ },
+ "S11": {
+  "figure": "~8,150 CNG stations; target >18,000 by 2030",
+  "notes": "Statement by Petroleum Minister Hardeep Singh Puri. Article dated 29 Aug 2025 (fetched).",
+  "publisher": "The Tribune",
+  "url": "https://www.tribuneindia.com/news/business/india-to-double-cng-stations-to-18000-by-2030-amid-one-nation-one-gas-grid-plan-puri",
+  "accessed": "2026-10-18"
+ },
+ "S12": {
+  "figure": "MWP target 18,336 CNG stations by 2032",
+  "notes": "PNGRB CGD Minimum Work Programme (snippet).",
+  "publisher": "Energetica India",
+  "url": "https://energetica-india.net/news/india-to-establish-18336-cng-stations-by-2032",
+  "accessed": "2026-10-18"
+ },
+ "S13": {
+  "figure": "Weighted average 0.727 tCO2/MWh (FY2023-24); BM 0.552; CM 0.757",
+  "notes": "Figures from CEA CO2 Baseline Database, reported 6 Jan 2025 (fetched). Probably CEA Version 20.0 (Dec 2024), but the article names no version. The CEA PDF could not be fetched (login wall).",
+  "publisher": "SolarQuarter (citing CEA)",
+  "url": "https://solarquarter.com/2025/01/06/co2-baseline-database-highlights-indias-progress-in-renewable-energy-and-emission-reduction-cea/",
+  "accessed": "2026-10-18"
+ },
+ "S14": {
+  "figure": "CEA CO2 Baseline Database User Guide v20.0 (Dec 2024)",
+  "notes": "Primary document. Not readable via fetch. Cite for verification.",
+  "publisher": "Central Electricity Authority",
+  "url": "https://cea.nic.in/wp-content/uploads/2021/03/User_Guide_Version_20.0.pdf",
+  "accessed": "2026-10-18"
+ },
+ "S15": {
+  "figure": "132 CBG plants completed (as of 3 Jun 2026) vs original target of 5,000 plants",
+  "notes": "Page dated 15 Jul 2026 (fetched). MoPNG year-end review (snippet): >130 commissioned as of 1 Nov 2025.",
+  "publisher": "Drishti IAS",
+  "url": "https://www.drishtiias.com/daily-updates/daily-news-analysis/compressed-biogas-and-indias-energy-security/print_manually",
+  "accessed": "2026-10-18"
+ },
+ "S16": {
+  "figure": "CBG Blending Obligation: 1% FY2025-26, 3% FY2026-27, 4% FY2027-28, 5% FY2028-29 onward",
+  "notes": "Applies to CNG (transport) and domestic PNG. Same page, which labels the years inconsistently in places.",
+  "publisher": "Drishti IAS",
+  "url": "https://www.drishtiias.com/daily-updates/daily-news-analysis/compressed-biogas-and-indias-energy-security/print_manually",
+  "accessed": "2026-10-18"
+ },
+ "S17": {
+  "figure": "Avg Li-ion pack US$108/kWh (2025), down 8% YoY",
+  "notes": "BNEF 2025 Battery Price Survey. Article dated 9 Dec 2025 (fetched). BNEF expects a further decline in 2026.",
+  "publisher": "ESS News (reporting BNEF)",
+  "url": "https://www.ess-news.com/?p=7552",
+  "accessed": "2026-10-18"
+ },
+ "S18": {
+  "figure": "LFP pack US$81/kWh; NMC pack US$128/kWh (2025 avg)",
+  "notes": "Same survey.",
+  "publisher": "ESS News (reporting BNEF)",
+  "url": "https://www.ess-news.com/?p=7552",
+  "accessed": "2026-10-18"
+ },
+ "S19": {
+  "figure": "BEV pack US$99/kWh; stationary US$70/kWh; China avg US$84/kWh",
+  "notes": "Same survey.",
+  "publisher": "ESS News (reporting BNEF)",
+  "url": "https://www.ess-news.com/?p=7552",
+  "accessed": "2026-10-18"
+ },
+ "S20": {
+  "figure": "Cell price US$74/kWh (down 5%)",
+  "notes": "Snippet attributed to BNEF survey coverage.",
+  "publisher": "Energy-Storage.news (snippet)",
+  "url": "https://www.energy-storage.news/?p=91801",
+  "accessed": "2026-10-18"
+ },
+ "S21": {
+  "figure": "BNEF press release (primary)",
+  "notes": "Could not be fetched. Cite for verification.",
+  "publisher": "BloombergNEF",
+  "url": "https://about.bnef.com/insights/commodities/lithium-ion-battery-pack-prices-fall-to-108-per-kilowatt-hour-despite-rising-metal-prices/",
+  "accessed": "2026-10-18"
+ },
+ "S22": {
+  "figure": "Ertiga Tour CNG: 26.08 km/kg (ARAI); 60 L CNG tank; 91.18 bhp; range ₹9.95–10.93 lakh ex-showroom Delhi",
+  "notes": "Fetched specs page. Variant-specific CNG price was not shown. A snippet showed the CNG variant at ₹10,97,501.",
+  "publisher": "CarDekho",
+  "url": "https://www.cardekho.com/maruti/ertiga-tour/specs",
+  "accessed": "2026-10-18"
+ },
+ "S23": {
+  "figure": "PM E-DRIVE: ₹10,900 cr outlay; ~₹2,000 cr for public charging; 22,100 e-4W fast chargers, 1,800 e-bus, 48,400 e-2W/3W",
+  "notes": "Cabinet approval Sep 2024 (snippet). July 2026 PIB-based summary (snippet): scheme runs to 31 Mar 2028; ₹689 cr approved for 6,562 chargers. No subsidy for e-4W purchase (CEEW).",
+  "publisher": "Renewable Watch / CEEW (snippet)",
+  "url": "https://renewablewatch.in/2024/09/12/union-cabinet-approves-pm-e-drive-scheme-to-promote-e-mobility-in-india/",
+  "accessed": "2026-10-18"
+ },
+ "S24": {
+  "figure": "E-car share of PV registrations: 4.5% FY2025-26 (219,484 of 4,839,508); 6.9% Q1 FY2026-27; 8.5% Sep 2026",
+  "notes": "Vahan-based analysis (snippet).",
+  "publisher": "EVreporter",
+  "url": "https://evreporter.com/state-wise-electric-car-penetration-in-india-in-fy-2025-26/",
+  "accessed": "2026-10-18"
+ }
+}

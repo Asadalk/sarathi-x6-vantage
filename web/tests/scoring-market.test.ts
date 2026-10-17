@@ -21,7 +21,12 @@ describe("powertrain multi-criteria scoring", () => {
   });
   it("normalised scores are within 0–10 and ranks are a permutation", () => {
     const s = run(0.8);
-    for (const r of s) for (const v of Object.values(r.norm)) expect(v).toBeGreaterThanOrEqual(0), expect(v).toBeLessThanOrEqual(10);
+    for (const r of s) {
+      for (const v of Object.values(r.norm)) {
+        expect(v).toBeGreaterThanOrEqual(0);
+        expect(v).toBeLessThanOrEqual(10);
+      }
+    }
     expect(s.map((x) => x.rank).sort()).toEqual([1, 2, 3, 4, 5, 6]);
   });
   it("queue minutes reproduce the default at the default duty mix", () => {
