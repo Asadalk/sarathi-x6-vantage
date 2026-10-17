@@ -1,0 +1,78 @@
+{
+ "taxiMarket2035UsdBn": 45.91926537255059,
+ "rideHailing2035Cr": 303067.1514588339,
+ "segments": [
+  {
+   "id": "intracity",
+   "label": "Intra-city on-demand",
+   "revenueCr": 139410.8896710636,
+   "paidKmBn": 63.36858621411982,
+   "tripsPerDayLakh": 192.9028499668792,
+   "avgTripKm": 9,
+   "farePerKm": 22.0,
+   "marginPct": 0.07,
+   "marginCr": 9758.762276974454,
+   "pool": "volume"
+  },
+  {
+   "id": "commute",
+   "label": "Daily commute",
+   "revenueCr": 48490.744233413425,
+   "paidKmBn": 25.521444333375488,
+   "tripsPerDayLakh": 43.70110331057447,
+   "avgTripKm": 16,
+   "farePerKm": 19.0,
+   "marginPct": 0.09,
+   "marginCr": 4364.166981007208,
+   "pool": "volume"
+  },
+  {
+   "id": "airport",
+   "label": "Airport transfers",
+   "revenueCr": 39398.729689648404,
+   "paidKmBn": 13.132909896549469,
+   "tripsPerDayLakh": 12.850205378228445,
+   "avgTripKm": 28,
+   "farePerKm": 30.0,
+   "marginPct": 0.18,
+   "marginCr": 7091.771344136712,
+   "pool": "yield"
+  },
+  {
+   "id": "intercity",
+   "label": "Inter-city",
+   "revenueCr": 45460.07271882508,
+   "paidKmBn": 28.412545449265675,
+   "tripsPerDayLakh": 3.538299557816398,
+   "avgTripKm": 220,
+   "farePerKm": 16.0,
+   "marginPct": 0.15,
+   "marginCr": 6819.010907823762,
+   "pool": "yield"
+  },
+  {
+   "id": "shared",
+   "label": "Shared / pooled",
+   "revenueCr": 18184.029087530034,
+   "paidKmBn": 12.988592205378596,
+   "tripsPerDayLakh": 32.35016738574993,
+   "avgTripKm": 11,
+   "farePerKm": 14.0,
+   "marginPct": 0.05,
+   "marginCr": 909.2014543765017,
+   "pool": "volume"
+  },
+  {
+   "id": "premium",
+   "label": "Premium",
+   "revenueCr": 12122.686058353356,
+   "paidKmBn": 3.0306715145883394,
+   "tripsPerDayLakh": 4.6128942383384155,
+   "avgTripKm": 18,
+   "farePerKm": 40.0,
+   "marginPct": 0.22,
+   "marginCr": 2666.9909328377385,
+   "pool": "yield"
+  }
+ ]
+}
