@@ -1,0 +1,22 @@
+# competition inputs — never commit
+inputs/
+# node
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+# env / secrets
+.env*
+!.env.example
+# vercel
+.vercel
+# misc
+.DS_Store
+deck/_render/

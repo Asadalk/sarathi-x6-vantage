@@ -1,0 +1,200 @@
+# SARATHI-X6 + VANTAGE — single source of truth for every model input.
+# All money values are 2035 planning values expressed in real (2026) rupees.
+# They are ILLUSTRATIVE assumptions, not Maruti Suzuki forecasts.
+# `src` refers to IDs in docs/SOURCES.md; `why` is the rationale where no source exists.
+# Exported to web/public/data/assumptions.json by model/export.py (a test fails if they drift).
+
+meta:
+  version: "2.0.0"
+  currency: "INR (real 2026 rupees)"
+  horizonYear: 2035
+  tcoYears: 5
+
+duty:
+  kmPerDay:            { value: 210,  unit: "km/day",   why: "Typical double-shift ride-hail duty; tuned so the Round-1 CNG baseline (₹26.9 L) is reproduced", usedIn: [tco, vantage] }
+  scheduledDays:       { value: 330,  unit: "days/yr",  why: "365 minus weekly rest/rotation", usedIn: [tco] }
+  productiveKmPerHour: { value: 20,   unit: "km/h",     why: "Average urban ride-hail speed incl. pickups; converts minutes lost refuelling into km lost", usedIn: [tco] }
+  paidShareBaseline:   { value: 0.65, unit: "share",    why: "Round-1 baseline paid-km share; consistent with the Naive policy in the /vantage simulator", usedIn: [tco, vantage] }
+  paidShareVantage:    { value: 0.72, unit: "share",    why: "Round-1 target; reproduced by the VANTAGE policy in the seeded simulator (see RECONCILIATION.md)", usedIn: [tco, vantage] }
+
+revenue:
+  farePerPaidKm:       { value: 36,   unit: "₹/paid km", why: "Effective revenue per paid km for a 6-seat XL-class ride incl. base fare, per-minute charge and airport/intercity premium (e.g. ₹100 base + ₹22/km + ₹2/min on a 10 km, 30 min trip ≈ ₹38/km)", usedIn: [tco, market] }
+  platformCommission:  { value: 0.20, unit: "share",    why: "Typical aggregator take rate", usedIn: [tco] }
+  driverShareOfNet:    { value: 0.49, unit: "share",    why: "Revenue-share driver model: driver keeps 49% of fare net of commission (≈₹14.1/paid km); operator keeps the rest and bears all vehicle costs", usedIn: [tco, apps] }
+  downtimeCostPerDay:  { value: 2000, unit: "₹/day",    why: "Lost operator contribution for each day the vehicle is off-road", usedIn: [tco, health] }
+
+energy:
+  cngPrice:            { value: 85,   unit: "₹/kg",     src: [S5, S6], why: "Delhi ₹86.98 / Mumbai ₹89 in 2026; held roughly flat in real terms to 2035", usedIn: [tco, powertrain] }
+  bioCngPrice:         { value: 88,   unit: "₹/kg",     src: [S15, S16], why: "CBG priced near fossil CNG under SATAT offtake; small premium assumed", usedIn: [tco, powertrain] }
+  petrolPrice:         { value: 100,  unit: "₹/L",      why: "Current metro petrol ≈ ₹95–105/L; held flat in real terms", usedIn: [tco, powertrain] }
+  depotTariff:         { value: 6.0,  unit: "₹/kWh",    why: "Fleet depot on commercial EV tariff + rooftop solar; state EV tariffs not independently verified — assumption", usedIn: [tco, powertrain, vantage] }
+  publicDcTariff:      { value: 13,   unit: "₹/kWh",    src: [S7, S8], why: "Public DC is ₹15–26/kWh in 2026; fleet-negotiated 2035 rate assumed lower", usedIn: [tco, powertrain, vantage] }
+  chargingEfficiency:  { value: 0.92, unit: "share",    why: "Grid-to-battery efficiency", usedIn: [tco, powertrain] }
+  gridFactor2035:      { value: 0.55, unit: "kgCO2/kWh", src: [S13], why: "CEA weighted average 0.727 t/MWh (FY24); assumed to fall with renewables by 2035", usedIn: [powertrain] }
+  cngCo2PerKg:         { value: 2.75, unit: "kgCO2/kg", why: "Stoichiometric combustion of natural gas (≈ methane)", usedIn: [powertrain] }
+  petrolCo2PerL:       { value: 2.31, unit: "kgCO2/L",  why: "Standard combustion factor for gasoline", usedIn: [powertrain] }
+  upstreamFossil:      { value: 0.20, unit: "share",    why: "Well-to-tank uplift on fossil fuels", usedIn: [powertrain] }
+  bioCngNetFactor:     { value: 0.25, unit: "share",    why: "Bio-CNG well-to-wheel CO2 as a share of fossil CNG (biogenic carbon)", usedIn: [powertrain] }
+
+vehicle:
+  batteryKWh:          { value: 24,   unit: "kWh",      why: "Round-1 spec: LFP pack sized for one urban shift, not brochure range", usedIn: [vehicle, tco] }
+  usableShare:         { value: 0.90, unit: "share",    why: "LFP usable window", usedIn: [vehicle] }
+  motorKw:             { value: 85,   unit: "kW",       why: "Round-1 spec 80–90 kW e-motor (mid-point)", usedIn: [vehicle] }
+  dcChargerKw:         { value: 60,   unit: "kW",       why: "Round-1 spec", usedIn: [vehicle, vantage] }
+  maxCRate:            { value: 2.5,  unit: "C",        why: "Fast-charge LFP cell capability assumed for 2035 (aggressive but available today in premium cells)", usedIn: [vehicle] }
+  dcAvgEfficiencyKw:   { value: 50.4, unit: "kW",       why: "Average power needed for 10→80% (16.8 kWh) in 20 min", usedIn: [vehicle] }
+  cngTankKg:           { value: 16,   unit: "kg",       why: "Two under-floor Type-IV cylinders (~90 L water capacity)", usedIn: [vehicle] }
+  rangeExtenderKmPerKg: { value: 21,  unit: "km/kg",    why: "Series-hybrid generator at fixed efficient operating point", usedIn: [vehicle, tco] }
+  kWhPerKm:            { value: 0.13, unit: "kWh/km",   why: "Battery-side consumption for a ~1.6 t compact MPV in mixed urban duty", usedIn: [vehicle, tco, vantage] }
+  luggageL:            { value: 300,  unit: "L",        why: "Round-1 spec, all rows up", usedIn: [vehicle] }
+  luggageFoldedL:      { value: 800,  unit: "L",        why: "Round-1 spec, 3rd row folded", usedIn: [vehicle] }
+  designLifeYears:     { value: 8,    unit: "years",    why: "Commercial-duty design life", usedIn: [vehicle] }
+  lfpCycleLife:        { value: 3500, unit: "cycles",   why: "LFP to 80% SOH, typical datasheet range 3,000–6,000", usedIn: [vehicle, health] }
+  lfpPackPrice2025:    { value: 81,   unit: "US$/kWh",  src: [S18], why: "BNEF 2025 LFP pack average", usedIn: [vehicle] }
+
+# Per-powertrain parameters. evShare = share of km driven on grid electricity.
+powertrains:
+  - id: CNG
+    label: "CNG (baseline)"
+    price: 1050000
+    residualPct: 0.18
+    evShare: 0
+    fuel: cng
+    kmPerFuel: 20
+    batteryKWh: 0
+    maintPerKm: 0.65
+    insurancePerYear: 35000
+    downtimeDays: 12
+    queueMinPerDay: 40
+    depotShare: 0
+    rangeKm: 420
+    refuelMinutes: 10
+    infraCity: 8
+    infraHighway: 7
+    why: "Ertiga-Tour-class CNG MPV (₹10.97 L, 26.08 km/kg ARAI, S22); 20 km/kg real-world (loaded, AC, city traffic); CNG queues ~40 min/day"
+  - id: BIOCNG
+    label: "Bio-CNG"
+    price: 1050000
+    residualPct: 0.18
+    evShare: 0
+    fuel: biocng
+    kmPerFuel: 20
+    batteryKWh: 0
+    maintPerKm: 0.65
+    insurancePerYear: 35000
+    downtimeDays: 12
+    queueMinPerDay: 55
+    depotShare: 0
+    rangeKm: 420
+    refuelMinutes: 10
+    infraCity: 4
+    infraHighway: 3
+    why: "Same vehicle as CNG; CBG outlets still scarce (132 plants vs 5,000 target, S15) so more queue time"
+  - id: HEV
+    label: "Petrol HEV"
+    price: 1250000
+    residualPct: 0.25
+    evShare: 0
+    fuel: petrol
+    kmPerFuel: 19
+    batteryKWh: 1
+    maintPerKm: 0.50
+    insurancePerYear: 34000
+    downtimeDays: 8
+    queueMinPerDay: 10
+    depotShare: 0
+    rangeKm: 800
+    refuelMinutes: 5
+    infraCity: 10
+    infraHighway: 10
+    why: "Strong-hybrid MPV; petrol everywhere, but fuel cost per km highest"
+  - id: PHEV
+    label: "Petrol PHEV"
+    price: 1400000
+    residualPct: 0.22
+    evShare: 0.45
+    fuel: petrol
+    kmPerFuel: 18
+    batteryKWh: 12
+    maintPerKm: 0.48
+    insurancePerYear: 36000
+    downtimeDays: 8
+    queueMinPerDay: 20
+    depotShare: 0.85
+    rangeKm: 700
+    refuelMinutes: 5
+    infraCity: 9
+    infraHighway: 10
+    why: "12 kWh plug-in: small EV window, carries two powertrains in a parallel layout"
+  - id: BEV
+    label: "BEV (40 kWh)"
+    price: 1350000
+    residualPct: 0.22
+    evShare: 1
+    fuel: none
+    kmPerFuel: 0
+    batteryKWh: 40
+    maintPerKm: 0.25
+    insurancePerYear: 36000
+    downtimeDays: 6
+    queueMinPerDay: 60
+    depotShare: 0.60
+    rangeKm: 270
+    refuelMinutes: 35
+    infraCity: 7
+    infraHighway: 3
+    why: "Lowest ₹/km, but intercity/airport duty forces mid-shift public DC (queue + detour time) and highway coverage is thin"
+  - id: EREV
+    label: "SARATHI-X6 EREV"
+    price: 1180000
+    residualPct: 0.27
+    evShare: 0.70
+    fuel: cng
+    kmPerFuel: 21
+    batteryKWh: 24
+    maintPerKm: 0.31
+    insurancePerYear: 32000
+    downtimeDays: 5
+    queueMinPerDay: 20
+    depotShare: 0.80
+    rangeKm: 518
+    refuelMinutes: 20
+    infraCity: 9
+    infraHighway: 8
+    why: "24 kWh LFP + CNG range-extender; depot charging overnight, one VANTAGE-scheduled DC top-up off-peak; CNG for highway"
+
+# Multi-criteria defaults for /powertrain (weights sum to 1).
+scoringWeights:
+  costPerKm: 0.30
+  uptime: 0.25
+  infra: 0.20
+  co2: 0.15
+  upfront: 0.10
+
+# Fleet-mix of km by duty used in infra scoring (intra-city vs highway).
+dutyMix:
+  cityShare: { value: 0.80, unit: "share", why: "Mixed fleet: 80% intra-city/commute km, 20% airport/intercity highway km", usedIn: [powertrain] }
+
+market:
+  taxiMarket2026UsdBn:    { value: 13.75, unit: "US$ bn", src: [S1], usedIn: [market] }
+  cagr2026to2031:         { value: 0.1793, unit: "share/yr", src: [S1], usedIn: [market] }
+  cagr2031to2035:         { value: 0.10, unit: "share/yr", why: "Assumed deceleration after 2031 as market matures", usedIn: [market] }
+  rideHailingShare:       { value: 0.651, unit: "share", src: [S2], usedIn: [market] }
+  rideHailingShare2035:   { value: 0.75, unit: "share", why: "Continued shift from offline taxi to app-based", usedIn: [market] }
+  usdInr:                 { value: 88, unit: "₹/US$", why: "Approximate 2026 exchange rate", usedIn: [market] }
+  segments:
+    - { id: intracity, label: "Intra-city on-demand", revenueShare: 0.46, avgTripKm: 9,   farePerKm: 22, marginPct: 0.07, why: "Largest pool; intra-city P2P is 60.75% of trips (S3)" }
+    - { id: commute,   label: "Daily commute",        revenueShare: 0.16, avgTripKm: 16,  farePerKm: 19, marginPct: 0.09, why: "Subscription/office routes, predictable, price-sensitive" }
+    - { id: airport,   label: "Airport transfers",    revenueShare: 0.13, avgTripKm: 28,  farePerKm: 30, marginPct: 0.18, why: "Fastest-growing (19.14% CAGR, S3); luggage + surcharge yield" }
+    - { id: intercity, label: "Inter-city",           revenueShare: 0.15, avgTripKm: 220, farePerKm: 16, marginPct: 0.15, why: "Long trips, high utilisation, low dead-km per trip" }
+    - { id: shared,    label: "Shared / pooled",      revenueShare: 0.06, avgTripKm: 11,  farePerKm: 14, marginPct: 0.05, why: "Per-seat pricing; needs 6+1 capacity" }
+    - { id: premium,   label: "Premium",              revenueShare: 0.04, avgTripKm: 18,  farePerKm: 40, marginPct: 0.22, why: "Small, highest yield" }
+
+presets:
+  # Values that differ from the defaults above in the Conservative preset.
+  conservative:
+    publicDcTariff: 18
+    depotTariff: 7.5
+    cngPrice: 80
+    evShareEREV: 0.60
+    residualEREV: 0.20
